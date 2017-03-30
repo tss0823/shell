@@ -1,0 +1,17 @@
+#!/bin/bash
+#clear old tomcat log
+module=$1
+if [ -z $module ]
+then
+cmd="find /u01 -size +100M  |  grep "logs" | xargs rm -fr"
+echo ${cmd}
+eval ${cmd}
+exit 0
+fi
+rm_arr=("manager" "localhost" "host" "catalina.2015-0" "catalina.2015-11")
+for var in ${rm_arr[@]};
+do
+rm_cmd="rm -fr /u01/deploy/project/tomcat_${module}/logs/${var}*"
+echo ${rm_cmd}
+eval ${rm_cmd}
+done
