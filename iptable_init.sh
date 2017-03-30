@@ -19,9 +19,29 @@ iptables -P FORWARD DROP
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 6379 -j ACCEPT
 iptables -A INPUT -p tcp --dport 9003 -j ACCEPT
-iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
+iptables -A INPUT -p tcp --dport 9005 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 9006 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 8888 -j ACCEPT
+
+#iptables -A INPUT -p tcp --dport 28080 -j ACCEPT
+## deubg port
+iptables -A INPUT -p tcp --dport 3999 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
+
+#iptables -A INPUT -p tcp --dport 81 -j ACCEPT
+iptables -A INPUT -p tcp --dport 3307 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 8081 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 28081 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 28082 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 28083 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 28084 -j ACCEPT
+#iptables -A INPUT -p tcp --dport 28085 -j ACCEPT
 iptables -A INPUT -i lo -p all -j ACCEPT
 
-iptables -A INPUT -s 58.100.180.52 -p tcp -j ACCEPT
-iptables -A INPUT -s 112.10.158.189 -p tcp -j ACCEPT
+iptables -A INPUT -s 192.168.1.2 -p tcp -j ACCEPT
+iptables -A INPUT -s 192.168.1.4 -p tcp -j ACCEPT
+
+#iptables -A INPUT -s 112.10.158.194 -p tcp -j ACCEPT
+iptables -A INPUT -s  124.160.28.69 -p tcp -j ACCEPT
